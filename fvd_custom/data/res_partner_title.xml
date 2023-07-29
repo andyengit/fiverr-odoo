@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_title_fem" model="res.partner.title">
+            <field name="name">FEMENINO</field>
+            <field name="shortcut"></field>
+        </record>
+
+        <record id="res_partner_title_mas" model="res.partner.title">
+            <field name="name">MASCULINO</field>
+            <field name="shortcut"></field>
+        </record>
+
+        <record id="res_partner_title_nonbin" model="res.partner.title">
+            <field name="name">NO BINARIO</field>
+            <field name="shortcut"></field>
+        </record>
+    </data>
+</odoo>

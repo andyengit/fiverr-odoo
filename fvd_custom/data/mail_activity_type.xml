@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mail_activity_data_call_phone" model="mail.activity.type">
+            <field name="name">LLAMADA TELEFÓNICA</field>
+            <field name="icon">fa-phone</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_appointment_at_the_headquarters" model="mail.activity.type">
+            <field name="name">CITA EN SEDE</field>
+            <field name="icon">fa-envelope</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_coordination_with_other_entities" model="mail.activity.type">
+            <field name="name">COORDINACIÓN CON OTRAS ENTIDADES</field>
+            <field name="icon">fa-users</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_house_call" model="mail.activity.type">
+            <field name="name">VISITA A DOMICILIO</field>
+            <field name="icon">fa-house</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_derivate_case" model="mail.activity.type">
+            <field name="name">DERIVAR EL CASO</field>
+            <field name="icon">fa-archive</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_closing_the_case" model="mail.activity.type">
+            <field name="name">CIERRE DE CASO</field>
+            <field name="icon">fa-lock</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_development_of_pai" model="mail.activity.type">
+            <field name="name">DESARROLLO DE PAI</field>
+            <field name="icon">fa-cogs</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="mail_activity_data_follow_up_of_pai" model="mail.activity.type">
+            <field name="name">SEGUIMIENTO DE PAI</field>
+            <field name="icon">fa-envelope</field>
+            <field name="sequence">3</field>
+        </record>
+    </data>
+</odoo>

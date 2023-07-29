@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista Formulario -->
+        <record id="view_fvd_custom_pai_form" model="ir.ui.view">
+            <field name="name">fvd_custom.pai.form</field>
+            <field name="model">fvd_custom.pai</field>
+            <field name="arch" type="xml">
+                <form string="PAI">
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="valoracion_dependencia"/>
+                            <field name="grado"/>
+                            <field name="centro_de_salud"/>
+                            <field name="hospital_ref"/>
+                        </group>
+                        <notebook>
+                            <page string="Sanitario">
+                                <group>
+                                    <field name="sanitario_obj"/>
+                                    <field name="sanitario_act"/>
+                                </group>
+                            </page>
+                            <page string="Familiar">
+                                <group>
+                                    <field name="familiar_obj"/>
+                                    <field name="familiar_act"/>
+                                </group>
+                            </page>
+                            <page string="Económico">
+                                <group>
+                                    <field name="eco_obj"/>
+                                    <field name="eco_act"/>
+                                </group>
+                            </page>
+                            <page string="Vivienda">
+                                <group>
+                                    <field name="vivienda_obj"/>
+                                    <field name="vivienda_act"/>
+                                </group>
+                            </page>
+                            <page string="Ocio">
+                                <group>
+                                    <field name="ocio_obj"/>
+                                    <field name="ocio_act"/>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="prox_rev"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Árbol -->
+        <record id="view_fvd_custom_pai_tree" model="ir.ui.view">
+            <field name="name">fvd_custom.pai.tree</field>
+            <field name="model">fvd_custom.pai</field>
+            <field name="arch" type="xml">
+                <tree string="PAI">
+                    <field name="partner_id"/>
+                    <field name="fecha"/>
+                    <field name="prox_rev"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción -->
+        <record id="action_fvd_custom_pai" model="ir.actions.act_window">
+            <field name="name">PAI</field>
+            <field name="res_model">fvd_custom.pai</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

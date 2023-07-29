@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']/group/group[2]" position="attributes"> 
+                    <attribute name="string">ESTADO FAMILIAR</attribute>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="public" string="RIESGOS LABORALES">
+                        <div id="o_cumplimineto_container"> <!-- These two div are used to position org_chart -->
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="prevention_of_occupational_hazards" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="prevention_of_occupational_hazards"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="confidentiality_contract"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="confidentiality_contract"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="lopd_obligations"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="lopd_obligations"/>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="medical_examination"/><br/>
+                                    <field name="medical_examination" widget="radio"/><br/>
+                                    <field name="file_medical_examination"
+                                        attrs="{'invisible': 
+                                        [('medical_examination','!=','yes')]
+                                        }"/>
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="delivery_of_protective_equipment"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="delivery_of_protective_equipment"/>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="training_record"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="training_record"/>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="mandatory_training"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="mandatory_training"/>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="complementary_manuals"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="complementary_manuals"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </page>
+                    <page name="public" string="LOPD">
+                        <div id="o_cumplimineto_container"> <!-- These two div are used to position org_chart -->
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_clause_annexed_to_the_contract_PD" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="clause_annexed_to_the_contract_PD" />
+                                    <field name="clause_annexed_to_the_contract_PD" 
+                                        attrs="{'invisible': 
+                                        [('is_clause_annexed_to_the_contract_PD','=',False)]
+                                        }"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_confidentiality_commitment"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="confidentiality_commitment"/>
+                                    <field name="confidentiality_commitment"
+                                        attrs="{'invisible': 
+                                        [('is_confidentiality_commitment','=',False)]
+                                        }"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_appointments_and_authorizations_PD"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="appointments_and_authorizations_PD"/>
+                                    <field name="appointments_and_authorizations_PD"
+                                        attrs="{'invisible': 
+                                        [('is_appointments_and_authorizations_PD','=',False)]
+                                        }"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_receipt_of_training_documentation"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="receipt_of_training_documentation"/>
+                                    <field
+                                        name="receipt_of_training_documentation"
+                                        attrs="{'invisible': 
+                                        [('is_receipt_of_training_documentation','=',False)]
+                                        }"/>
+                                </div>
+                            </div>
+                        </div>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

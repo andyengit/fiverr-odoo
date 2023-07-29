@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista Formulario -->
+        <record id="view_fvd_custom_social_report_form" model="ir.ui.view">
+            <field name="name">fvd_custom.social_report.form</field>
+            <field name="model">fvd_custom.social_report</field>
+            <field name="arch" type="xml">
+                <form string="Social Report">
+                    <sheet>
+                        <group>
+                            <field name="area_emisor"/>
+                            <field name="area_receptor"/>
+                            <field name="date"/>
+                            <field name="trabajador"/>
+                            <field name="motivo"/>
+                            <field name="partner_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Situación Familiar">
+                                <group>
+                                    <field name="situacion_familiar"/>
+                                </group>
+                            </page>
+                            <page string="Situación Económica">
+                                <group>
+                                    <field name="situacion_economica"/>
+                                </group>
+                            </page>
+                            <page string="Vivienda">
+                                <group>
+                                    <field name="vivienda"/>
+                                </group>
+                            </page>
+                            <page string="Salud">
+                                <group>
+                                    <field name="salud"/>
+                                </group>
+                            </page>
+                            <page string="Valoración Profesional">
+                                <group>
+                                    <field name="Valoracion_profesional"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Árbol -->
+        <record id="view_fvd_custom_social_report_tree" model="ir.ui.view">
+            <field name="name">fvd_custom.social_report.tree</field>
+            <field name="model">fvd_custom.social_report</field>
+            <field name="arch" type="xml">
+                <tree string="Social Reports">
+                    <field name="area_emisor"/>
+                    <field name="area_receptor"/>
+                    <field name="date"/>
+                    <field name="trabajador"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción -->
+        <record id="action_fvd_custom_social_report" model="ir.actions.act_window">
+            <field name="name">Informe Social</field>
+            <field name="res_model">fvd_custom.social_report</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

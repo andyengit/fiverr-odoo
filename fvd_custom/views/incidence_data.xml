@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="incidence_data_view_form" model="ir.ui.view">
+        <field name="name">incidence.data.view.form</field>
+        <field name="model">fvd_custom.incidence_data</field>
+        <field name="arch" type="xml">
+                <form string="Data de la incidencia">
+                    <sheet>
+                        <div class="oe_left oe_edit_only">
+                            <group name="Personas que recogen la incidencia" string="Personas que recogen la incidencia">
+                                <field name="employee_id"/>
+                                <field name="employee_type"/>
+                            </group>
+                            
+                        </div>
+                        <div class="oe_right oe_edit_only">
+                            <group name="name" string="Informacion">
+                                <field name="description"/>
+                                <field name="incidence_area"/>
+                                <field name="document_date"/>
+                            </group>
+                        </div>
+                        <notebook>
+                            <page name="Persona/as que transmiten la incidencia" string="Persona/as que transmiten la incidencia">
+                                <group name="Personas que transmiten la incidencia">
+                                <field name="incidence_employee_id"/>
+                                <field name="incidence_employee_type"/>
+                                <field name="user"/>
+                                <field name="volunteer"/>
+                                <field name="tbc"/>
+                            </group> 
+                            </page>
+                            <page name="Persona/as involucradas en la incidencia" string="Persona/as involucradas en la incidencia">
+                                <field name="people_in_advocacy_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="employee_id" />
+                                        <field name="employee_type" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+
+        </field>
+    </record>
+
+    <record id="incidence_data_view_tree" model="ir.ui.view">
+        <field name="name">incidence.data.view.tree</field>
+        <field name="model">fvd_custom.incidence_data</field>
+        <field name="arch" type="xml">
+            <tree string="Incidencias">
+                <field name="employee_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="incidence_data_action" model="ir.actions.act_window">
+        <field name="name">Incidencias</field>
+        <field name="res_model">fvd_custom.incidence_data</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+            
+    </record>
+
+</odoo>

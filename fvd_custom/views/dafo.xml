@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <!-- Vista form para la clase Dafo -->
+        <record model="ir.ui.view" id="dafo_form_view">
+            <field name="name">Dafo Form</field>
+            <field name="model">fvd_custom.dafo</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Dafo">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="expedient_number"/>
+                            <h1>
+                                <field name="expedient_number" class="oe_big" placeholder="número de expediente"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="start_date"/>
+                            <field name="check_date"/>
+                        </group>
+                        <group>
+                            <field name="points_to_improve"/>
+                            <field name="strengths"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dafo_tree_view">
+            <field name="name">Dafo Tree</field>
+            <field name="model">fvd_custom.dafo</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Dafo">
+                    <field name="expedient_number"/>
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <field name="check_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="dafo_action" model="ir.actions.act_window">
+            <field name="name">DAFO</field>
+            <field name="res_model">fvd_custom.dafo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+        </record>
+
+    </data>
+</odoo>

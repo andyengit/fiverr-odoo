@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+res_partner_nationality,res_partner_nationality,model_res_partner_nationality,,1,1,1,1
+dafo,dafo,model_fvd_custom_dafo,,1,1,1,1
+incidence_line_data,incidence_line_data,model_fvd_custom_incidence_line_data,,1,1,1,1
+incidence_data,incidence_data,model_fvd_custom_incidence_data,,1,1,1,1
+pai,pai,model_fvd_custom_pai,,1,1,1,1
+social_rep,social_rep,model_fvd_custom_social_report,,1,1,1,1
+

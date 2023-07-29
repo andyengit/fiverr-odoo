@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="fdv_custom_incidence"
+        name="Incidencias"
+        sequence="90"
+        parent="contacts.menu_contacts"
+        action="incidence_data_action"
+        />
+    
+    <menuitem
+        id="fdv_custom_dafo"
+        name="Dafo"
+        sequence="90"
+        parent="hr.menu_hr_root"
+        action="dafo_action"
+        />
+
+    <menuitem
+        id="custom_pai"
+        name="PAI"
+        sequence="90"
+        parent="contacts.menu_contacts"
+        action="fvd_custom.action_fvd_custom_pai"
+        />
+
+    <menuitem
+        id="custom_social_report"
+        name="Informe Social"
+        sequence="90"
+        parent="contacts.menu_contacts"
+        action="action_fvd_custom_social_report"
+        />
+
+
+
+</odoo>
