@@ -13,7 +13,7 @@
         id="fdv_custom_dafo"
         name="Dafo"
         sequence="90"
-        parent="hr.menu_hr_root"
+        parent="contacts.menu_contacts"
         action="dafo_action"
         />
 

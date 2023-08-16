@@ -18,6 +18,7 @@ class HrEmployee(models.Model):
         tracking=True,
     )
 
+
     employee_type = fields.Selection(
         [
             ("employee", "Employee"),

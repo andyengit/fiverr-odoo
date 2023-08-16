@@ -10,8 +10,150 @@
                 <field name="birthdate"/>
                 <field name="age"/>
             </xpath>
+            <xpath expr="//field[@name='street2']" position="after">
+                <field name="tipo_via" placeholder="Tipo Via"/>
+                <field name="portal" placeholder="Portal"/>
+                <field name="escalera" placeholder="Escalera"/>
+                <field name="plant" placeholder="Planta"/>
+                <field name="puerta" placeholder="Puerta"/>
+            </xpath>
+            <xpath expr="//field[@name='state_id']" position="attributes">
+                <attribute name="placeholder">Provincia</attribute>
+            </xpath>
+            <xpath expr="//field[@name='street']" position="attributes">
+                <attribute name="placeholder">Nombre Via</attribute>
+            </xpath>
+            <xpath expr="//field[@name='street2']" position="attributes">
+                <attribute name="placeholder">N Calle</attribute>
+            </xpath>
             <xpath expr="//field[@name='category_id']" position="after">
-                <field name="nationality_ids" widget="many2many_tags"/>
+                <field name="nationality_one"/>
+                <field name="nationality_two"/>
+                <field name="nationality_three"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="PAI" string="PAI">
+                    <field name="pai_ids" mode="tree,kanban">
+                        <tree>
+                            <field name="fecha"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="Incidencias" string="Incidencias">
+                    <field name="incidencia_ids" mode="tree,kanban">
+                        <tree>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="Informe sociales" string="Informe Social">
+                    <field name="informe_social_ids" mode="tree,kanban">
+                        <tree>
+                            <field name="motivo"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="dafo" string="DAFO">
+                    <field name="dafo_ids" mode="tree,kanban">
+                        <tree>
+                            <field name="expedient_number"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="doc_general" string="Documentacion General">
+                    <div id="o_cumplimineto_container"> <!-- These two div are used to position org_chart -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_cesion_de_datos"/>
+                                <field name="file_cesion_de_datos"/>
+                                <field name="date_cesion_de_datos" readonly="1"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_suspencion_de_datos"/>
+                                <field name="file_suspencion_de_datos"/>
+                                <field readonly="1" name="date_suspencion_de_datos"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_cesion_de_imagen"/>
+                                <field name="file_cesion_de_imagen"/>
+                                <field readonly="1" name="date_cesion_de_imagen"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_compromiso_de_confidencialidad"/>
+                                <field name="file_compromiso_de_confidencialidad"/>
+                                <field readonly="1" name="date_compromiso_de_confidencialidad"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_instrucciones_previas"/>
+                                <field name="file_instrucciones_previas"/>
+                                <field readonly="1" name="date_instrucciones_previas"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_expediente"/>
+                                <div>
+                                    <span>Apertura: </span>
+                                    <field name="file_expediente"/>
+                                    <field readonly="1" name="date_expediente"/>
+                                </div>
+                                <div>
+                                    <span>Cierre: </span>
+                                    <field name="file_expediente"/>
+                                    <field readonly="1" name="date_expediente"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="file_contrato_vinculante_a_servicio"/>
+                                <div>
+                                    <span>Alta: </span>
+                                    <field name="file_contrato_vinculante_a_servicio_a"/>
+                                    <field readonly="1" name="date_contrato_vinculante_a_servicio_a"/>
+                                </div>
+                                <div>
+                                    <span>Modificacion: </span>
+                                    <field name="file_contrato_vinculante_a_servicio"/>
+                                    <field readonly="1" name="date_contrato_vinculante_a_servicio"/>
+                                </div>
+                                <div>
+                                    <span>Fin: </span>
+                                    <field name="file_contrato_vinculante_a_servicio_f"/>
+                                    <field readonly="1" name="date_contrato_vinculante_a_servicio_f"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </page>
             </xpath>
         </field>
     </record>

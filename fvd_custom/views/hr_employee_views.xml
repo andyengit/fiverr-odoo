@@ -10,7 +10,7 @@
                     <attribute name="string">ESTADO FAMILIAR</attribute>
                 </xpath>
                 <xpath expr="//notebook" position="inside">
-                    <page name="public" string="RIESGOS LABORALES">
+                    <page name="public" string="Riesgos Laborales">
                         <div id="o_cumplimineto_container"> <!-- These two div are used to position org_chart -->
                             <div class="col-12 col-lg-6 o_setting_box">
                                 <div class="o_setting_left_pane">
@@ -43,10 +43,7 @@
                                 <div class="o_setting_right_pane">
                                     <label for="medical_examination"/><br/>
                                     <field name="medical_examination" widget="radio"/><br/>
-                                    <field name="file_medical_examination"
-                                        attrs="{'invisible': 
-                                        [('medical_examination','!=','yes')]
-                                        }"/>
+                                    <field name="file_medical_examination" />
 
                                 </div>
                             </div>

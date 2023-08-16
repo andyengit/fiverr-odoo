@@ -4,7 +4,7 @@ class Dafo(models.Model):
     _name = "fvd_custom.dafo"
 
     expedient_number = fields.Integer(string="Nro de expediente")
-    employee_id = fields.Many2one("hr.employee", string="Empleado")
+    employee_id = fields.Many2one("res.partner", string="Usuarix")
 
     points_to_improve = fields.Text(string="Puntos a mejorar")
     strengths = fields.Text(string="Puntos fuertes")
