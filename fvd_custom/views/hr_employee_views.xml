@@ -87,7 +87,7 @@
                         </div>
                     </page>
                     <page name="public" string="LOPD">
-                        <div id="o_cumplimineto_container"> <!-- These two div are used to position org_chart -->
+                        <div id=""> <!-- These two div are used to position org_chart -->
                             <div class="col-12 col-lg-6 o_setting_box">
                                 <div class="o_setting_left_pane">
                                     <field name="is_clause_annexed_to_the_contract_PD" />

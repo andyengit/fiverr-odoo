@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_imagen_report">
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <div class="row border border-dark mb-5">
+                            <div class="col-3 mb4 ">
+                                <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 70px;" alt="Logo"/>
+                            </div>
+                            <div class="col-6 text-center mt-3" style="font-size:25px">
+CESIÓN DE DERECHOS DE IMÁGEN
+                            </div>
+                        </div>
+                        <div>
+                            <p>
+D./Dª :<t t-esc="doc.name"/>
+                            </p>
+                            <p>
+Con N. I. F. <t t-esc="doc.vat"/>, y con de acuerdo con lo dispuesto en el Reglamento (UE) 2016/679,
+del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a las personas físicas en lo que
+respecta al tratamiento de datos personales y a la libre circulación de estos datos (RGPD), Ley Orgánica
+3/2018, de 5 de diciembre, de Protección de Datos Personales y Garantías de los Derechos Digitales y
+resto de normativa vigente en esta materia, quedo informado que mis datos serán tratados como cliente,
+basándonos en la relación contractual existente.
+                            </p>
+                            <p>
+                                <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+Doy mi consentimiento para tratar mis imágenes y sonidos, en diferentes aplicaciones y formatos,
+según lo dispuesto en el artículo 6.1.a RGPD; así como cedo a Fundación Veintiséis de Diciembre el uso de
+mis imágenes y/o voz de forma gratuita, sin limitación ni restricción de ninguna clase:
+                            </p>
+                            <p>
+Se me informa que los mismos serán cedidos en los casos que exista una obligación legal, según lo
+establecido en el artículo 6.1.c RGPD.
+                            </p>
+                            <p>
+Mis datos serán incorporados al Sistema de Protección de Datos de Fundación Veintiséis de Diciembre,
+con CIF G86005345, y domicilio en Calle Fray Ceferino González, 4 28005 Madrid . Serán conservados
+durante el tiempo que dure el consentimiento, o en su caso, el tiempo legal establecido para cada una de
+las obligaciones legales que deriven de los tratamientos para los que se ha consentido.
+                            </p>
+                            <p>
+Se me informa de la posibilidad de retirar mi consentimiento en cualquier momento. Si bien, esta retirada
+no afectará a los tratamientos anteriores a la misma. Asimismo, se me informa de que puedo ejercitar mis
+derechos de acceso a los datos, su rectificación, supresión, oposición, limitación de su tratamiento o
+portabilidad de estos según lo establecido en el RGPD. Podré ejercitar estos derechos, o revocar el
+consentimiento, por escrito en la dirección postal indicada o en lpod@fundacion26d.org junto copia de
+mi DNI.
+                            </p>
+                            <p>
+Asimismo, se me informa de mi derecho a presentar reclamación ante la Autoridad de Control, Agencia
+Española de Protección de Datos.
+                            </p>
+                            <br/>
+                            <br/>
+                            <br/>
+                            
+Firma: _____________________________
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_imagen_report" model="ir.actions.report">
+            <field name="name">CESIÓN DE DERECHOS DE IMÁGEN</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">fvd_custom.report_imagen_report</field>
+            <field name="report_file">fvd_custom.report_imagen_report</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="fvd_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>

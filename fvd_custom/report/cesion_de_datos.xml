@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_cesion_de_datos_templ">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <div class="row border border-dark ">
+                            <div class="col-3 mb4 ">
+                                <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 70px;" alt="Logo"/>
+                            </div>
+                            <div class="col-6 text-center mt-3" style="font-size:30px">
+                                Cesion de Datos
+                            </div>
+                        </div>
+                        <br/>
+                        <h4 class="text-center">Datos Personales</h4>
+                        <div class="row mb-4">
+                            <div class="col-12 mb-2">
+                                <span class="mb-1">Nombres y Apellidos:</span>
+                                <br/> 
+                                <p class="border border-dark p-2" ><t t-out="doc.name"/></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 mb-1">
+                                <span >Edad:</span>
+                            </div>
+                            <div class="col-3 mb-1">
+                                <span>Fecha nac:</span>
+                            </div>
+                            <div class="col-4 mb-1">
+                                <span>DNI/NIF/PASAPORTE:</span>
+                            </div>
+
+                            <div class="col-3 mb-1">
+                                <span>Telefono:</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2 mb-2 p-2 border border-dark">
+                                <span><t t-out="doc.age"/></span>
+                            </div>
+                            <div class="col-3 mb-2 p-2 border border-dark">
+                                <span><t t-out="doc.birthdate"/></span>
+                            </div>
+                            <div class="col-4 mb-2 p-2 border border-dark">
+                                <span><t t-out="doc.vat"/></span>
+                            </div>
+                            <div class="col-3 mb-2 p-2 border border-dark">
+                                <span><t t-out="doc.phone"/></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-12 mb-2">
+                                <span>DOMICILIO:</span>
+                                <p class="border border-dark p-2" t-field="doc.contact_address"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-12 mb-2">
+                                <span>ENTIDAD A LA QUE SE LE HACE CESIÓN DE DATOS:</span>
+                                <p class="border border-dark p-2" t-out="'Fundación 26 de Diciembre'"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10 align-center" style="font-size: 12px">
+                            <div class="col-1"/>
+                        <span>
+De acuerdo con lo dispuesto en el Reglamento (UE) 2016/679, del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a
+las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos (RGPD), así como en la
+                        </span>
+                        <span>
+normativa española vigente en esta materia, y respecto a los datos que me identifican como usuarix doy mi consentimiento para que
+                                sean tratados para:
+                        </span>
+                        <ul>
+                            <li>
+                                <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+Si usted es un candidatx, compartiremos tu información con clientes que puedan tener oportunidades de trabajo disponibles o interés
+en la contratación de nuestros candidatxs.
+                            </li>
+                            <li>
+                                <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+Si usted está interesadx en participar en actividades o eventos compartiremos información
+con las entidades, empresas o instituciones colaboradoras.
+                            </li>
+                            <li>
+                                <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+Si usted está interesadx en participar en actividades o eventos compartiremos información
+Envío de comunicaciones comerciales.
+                            </li>
+                        </ul>
+                        <p>
+Mis datos serán incorporados al Sistema de Protección de Datos de la Fundación 26 de Diciembre, con NIF: G86005345, y domicilio en
+Calle Fray Ceferino González nº 4 CP: 28005 – Madrid. Serán conservados el tiempo que dure el consentimiento, o en su caso, el tiempo
+legal establecido para cada una de las obligaciones legales que deriven de los tratamientos para los que se ha consentido.
+Declaro haber sido informado de poder ejercitar mis derechos de acceso a los datos, su rectificación, supresión, oposición, limitación
+de su tratamiento o portabilidad de los mismos según lo establecido en el RGPD. Podré ejercitar estos derechos por escrito en la
+dirección postal o electrónica que aparece al final de la cláusula, junto a copia de mi DNI.
+                        </p>
+                        <p>
+Este consentimiento es libre, inequívoco y específico para los tratamientos donde me he manifestado afirmativamente, habiendo sido
+informadx de la posibilidad de retirar mi consentimiento en cualquier momento. Si bien, esta retirada no afectará a los tratamientos
+anteriores a la misma. Para esta revocación del consentimiento, o cualquier otra consulta, debo comunicarlo por escrito, adjuntando
+fotocopia del DNI, a Fundación 26 de Diciembre, en calle Fray Ceferino González nº 4 CP: 28005 – Madrid o a lopd@fundacion26d.org
+Asimismo, declaro que he sido informado de mi derecho a presentar reclamación ante la Autoridad de Control, Agencia Española de
+Protección de Datos.
+                        </p>
+                            </div>
+                        </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        <div>
+Firma: Declaro que son ciertos los datos facilitados
+                            <br/>
+                            En Madrid, a <t t-out="context_timestamp(datetime.datetime.now()).strftime('%d')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%m')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                        </div>
+                        <hr/>
+                        <div class="text-center">
+Calle Fray Ceferino González, 4. 28005 Madrid. Teléfono: 0034 910 028 417
+Entidad declarada de “Utilidad Pública”
+www.fundacion26d.org
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_cesion_de_datos_report" model="ir.actions.report">
+            <field name="name">Informe de Cesión de Datos</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">fvd_custom.report_cesion_de_datos_templ</field>
+            <field name="report_file">fvd_custom.report_cesion_de_datos_templ</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="fvd_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>

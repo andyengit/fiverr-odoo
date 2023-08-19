@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_sus_de_datos_templ">
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <t t-foreach="['COPIA PARA LA FUNDACIÓN 26 DE DICIEMBRE','COPIA PARA LA PERSONA USUARIA']" t-as="copytext">
+                        <p class="text-end"><t t-out="copytext"/></p>
+                        <div class="row border border-dark mb-5">
+                            <div class="col-3 mb4 ">
+                                <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 70px;" alt="Logo"/>
+                            </div>
+                            <div class="col-6 text-center mt-3" style="font-size:25px">
+                                EJERCICIO DEL DERECHO DE SUPRESIÓN (RGPD)
+                            </div>
+                        </div>
+
+                        <div style="font-size: 16px;page-break-inside: avoid;">
+                            <h5>
+DATOS DEL RESPONSABLE DEL TRATAMIENTO. Titular:
+                            </h5>
+                            <hr/>
+                            <p>
+FUNDACIÓN 26 DE DICIEMBRE (NIF: G86005345) Domicilio: Calle Fray Ceferino Gonzalez, 4 (28005)
+Madrid.
+                            </p>
+                            <br/>
+                            <br/>
+
+                            <h5>
+DATOS DEL AFECTADO O REPRESENTANTE LEGAL.
+                            </h5>
+                            <hr/>
+
+                            <p>
+D./Dª  <t t-out="doc.name"/>,mayor de edad, con D.N.I/N.I.E <t t-out="doc.vat"/>, con
+domicilio sito en la C/ <t t-out="doc.contact_address"/>
+C.P<t t-out="doc.zip"/>, Localidad <t t-out="doc.city"/>, Provincia <t t-out="doc.state_id.name"/>
+                            </p>
+                            <p>
+E-mail <t t-out="doc.email"/>, por medio del presente escrito ejerce
+el derecho de supresión, de conformidad con lo previsto en el artículo 17 del Reglamento
+UE 2016/679, General de Protección de Datos (RGPD).
+                            </p>
+                            <br/>
+                            <br/>
+
+                            <h5 class="text-center">
+S O L I C I T A
+                            </h5>
+                            <hr/>
+                            <p>
+Que se proceda a acordar la supresión de sus datos personales en el plazo de un mes a contar desde la
+recepción de esta solicitud, y que se me notifique de forma escrita el resultado de la supresión
+practicada.
+                            </p>
+                            <p>
+Que en caso de que se acuerde que no procede practicar total o parcialmente la supresión
+solicitada, se me comunique motivadamente a fin de, en su caso, reclamar ante la Autoridad de
+control que corresponda.
+                            </p>
+                            <p>
+Que en caso de que mis datos personales hayan sido comunicados por ese responsable a otros
+responsables del tratamiento, se comunique esta supresión.
+                            </p>
+                            <p>
+En Madrid, a <t t-out="context_timestamp(datetime.datetime.now()).strftime('%d')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%m')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+
+                            </p>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p>
+Fdo.: D./Dña. ______________________________
+                            </p>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                        </div >
+                    </t>
+                </t>
+            </t>
+            </t>
+        </template>
+
+
+        <record id="action_sus_de_datos_report" model="ir.actions.report">
+            <field name="name">EJERCICIO DEL DERECHO DE SUPRESIÓN (RGPD)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">fvd_custom.report_sus_de_datos_templ</field>
+            <field name="report_file">fvd_custom.report_sus_de_datos_templ</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="fvd_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>

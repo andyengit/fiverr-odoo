@@ -1,6 +1,6 @@
 {
     "name": "Fundacion Veintiseis de Diciembre - Custom",
-    "version": "1.1",
+    "version": "1.2",
     "category": "Human Resources/Employees",
     "description": """PERSONALIZACIONES PARA FVD""",
     "website": "andersonarmeya.com",
@@ -9,6 +9,10 @@
         "security/ir.model.access.csv",
         "data/mail_activity_type.xml",
         "data/res_partner_title.xml",
+        "report/cesion_de_datos.xml",
+        "report/suspencion_de_datos.xml",
+        "report/cesion_imagen.xml",
+        "report/previas.xml",
         "views/hr_employee_views.xml",
         "views/res_partner_views.xml",
         "views/account_move_views.xml",

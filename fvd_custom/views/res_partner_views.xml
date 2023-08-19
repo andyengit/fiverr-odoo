@@ -67,6 +67,7 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="file_cesion_de_datos"/>
+                                <button name="%(action_cesion_de_datos_report)d" string="Generar" type="action"/>
                                 <field name="file_cesion_de_datos"/>
                                 <field name="date_cesion_de_datos" readonly="1"/>
                             </div>
@@ -77,6 +78,7 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="file_suspencion_de_datos"/>
+                                <button name="%(action_sus_de_datos_report)d" string="Generar" type="action"/>
                                 <field name="file_suspencion_de_datos"/>
                                 <field readonly="1" name="date_suspencion_de_datos"/>
                             </div>
@@ -87,6 +89,7 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="file_cesion_de_imagen"/>
+                                <button name="%(action_imagen_report)d" string="Generar" type="action"/>
                                 <field name="file_cesion_de_imagen"/>
                                 <field readonly="1" name="date_cesion_de_imagen"/>
                             </div>
@@ -107,6 +110,7 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="file_instrucciones_previas"/>
+                                <button name="%(action_previas)d" string="Generar" type="action"/>
                                 <field name="file_instrucciones_previas"/>
                                 <field readonly="1" name="date_instrucciones_previas"/>
                             </div>

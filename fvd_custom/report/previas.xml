@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_previas_tmpl">
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <div class="row mb-5">
+                            <div class="col-3 mb4 ">
+                                <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 70px;" alt="Logo"/>
+                            </div>
+                        </div>
+                        <div>
+                            <p>
+En Madrid, a <t t-out="context_timestamp(datetime.datetime.now()).strftime('%d')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%m')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                            </p>
+                            <p>
+Don/Doña <t t-out="doc.name"/>
+con DNI/NIE/PASS Nº <t t-out="doc.name"/>
+y dirección en: <t t-out="doc.contact_address"/>
+                            </p>
+                            <p>
+CERTIFICO QUE.
+                            </p>
+                            <p>
+En el día de hoy, la Fundación 26 de Diciembre, con CIF G86005345, con sede social
+sita en C/ Fray Ceferino González, 4, 28005, Madrid (Madrid) ha cumplido con su
+obligación, y a través Don Federico Armenteros Ávila, con DNI 51881115-S, en calidad
+de Presidente y Representante Legal, se ha procedido a informarme sobre
+“Instrucciones Previas”
+                            </p>
+                            <p>
+Y para que así conste y a los efectos oportunos firmo la presente en Madrid, a <t t-out="context_timestamp(datetime.datetime.now()).strftime('%d')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%m')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                            </p>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    Fdo.
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>
+Fdo. Federico Armenteros Ávila
+Presidente y Representante Legal de
+Fundación 26 de Diciembre
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_previas" model="ir.actions.report">
+            <field name="name">CERTIFICADO DE INFORMACION DE "Instrucciones Previa"</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">fvd_custom.report_previas_tmpl</field>
+            <field name="report_file">fvd_custom.report_previas_tmpl</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="fvd_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>
