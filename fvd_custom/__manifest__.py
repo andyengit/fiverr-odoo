@@ -12,6 +12,8 @@
         "report/cesion_de_datos.xml",
         "report/suspencion_de_datos.xml",
         "report/cesion_imagen.xml",
+        "report/compromiso.xml",
+        "report/expediente.xml",
         "report/previas.xml",
         "views/hr_employee_views.xml",
         "views/res_partner_views.xml",

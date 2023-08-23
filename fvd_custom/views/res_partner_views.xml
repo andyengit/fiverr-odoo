@@ -30,6 +30,7 @@
                 <field name="nationality_one"/>
                 <field name="nationality_two"/>
                 <field name="nationality_three"/>
+                <field name="marital"/>
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page name="PAI" string="PAI">
@@ -61,102 +62,152 @@
                     </field>
                 </page>
                 <page name="doc_general" string="Documentacion General">
-                    <div id="o_cumplimineto_container"> <!-- These two div are used to position org_chart -->
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
+                        <div class="row">
+                            <div class="col-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="file_cesion_de_datos"/>
+                                    <button name="%(action_cesion_de_datos_report)d" string="Generar" type="action"/>
+                                    <field name="file_cesion_de_datos"/>
+                                    <field name="date_cesion_de_datos" readonly="1"/>
+                                </div>
                             </div>
-                            <div class="o_setting_right_pane">
-                                <label for="file_cesion_de_datos"/>
-                                <button name="%(action_cesion_de_datos_report)d" string="Generar" type="action"/>
-                                <field name="file_cesion_de_datos"/>
-                                <field name="date_cesion_de_datos" readonly="1"/>
+
+                            <div class="col-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="file_suspencion_de_datos"/>
+                                    <button name="%(action_sus_de_datos_report)d" string="Generar" type="action"/>
+                                    <field name="file_suspencion_de_datos"/>
+                                    <field readonly="1" name="date_suspencion_de_datos"/>
+                                </div>
+                            </div>
+
+                            <div class="col-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="file_cesion_de_imagen"/>
+                                    <button name="%(action_imagen_report)d" string="Generar" type="action"/>
+                                    <field name="file_cesion_de_imagen"/>
+                                    <field readonly="1" name="date_cesion_de_imagen"/>
+                                </div>
+                            </div>
+
+
+                            <div class="col-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="file_instrucciones_previas"/>
+                                    <button name="%(action_previas)d" string="Generar" type="action"/>
+                                    <field name="file_instrucciones_previas"/>
+                                    <field readonly="1" name="date_instrucciones_previas"/>
+                                </div>
+                            </div>
+
+                            <div class="col-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="file_suspencion_de_datos"/>
-                                <button name="%(action_sus_de_datos_report)d" string="Generar" type="action"/>
-                                <field name="file_suspencion_de_datos"/>
-                                <field readonly="1" name="date_suspencion_de_datos"/>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="file_cesion_de_imagen"/>
-                                <button name="%(action_imagen_report)d" string="Generar" type="action"/>
-                                <field name="file_cesion_de_imagen"/>
-                                <field readonly="1" name="date_cesion_de_imagen"/>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
+                        <hr/>
+                        <div class="row">
+                            <div class="col-12 o_setting_box">
                                 <label for="file_compromiso_de_confidencialidad"/>
-                                <field name="file_compromiso_de_confidencialidad"/>
-                                <field readonly="1" name="date_compromiso_de_confidencialidad"/>
+                                <button name="%(action_compro)d" string="Generar" type="action"/>
+                                <br/>
+                                <br/>
+                                <div>
+                                <label for="calidad_de"/>
+                                <field name="calidad_de"/>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="o_setting_right_pane">
+                                    <field name="file_compromiso_de_confidencialidad"/>
+                                    <field readonly="1" name="date_compromiso_de_confidencialidad"/>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="file_instrucciones_previas"/>
-                                <button name="%(action_previas)d" string="Generar" type="action"/>
-                                <field name="file_instrucciones_previas"/>
-                                <field readonly="1" name="date_instrucciones_previas"/>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
+                        <hr/>
+                        <div class="row">
+                            <div class="col-12 o_setting_box">
                                 <label for="file_expediente"/>
+                                <button name="%(action_exp)d" string="Generar" type="action"/>
+                                <br/>
+                                <br/>
                                 <div>
-                                    <span>Apertura: </span>
-                                    <field name="file_expediente"/>
-                                    <field readonly="1" name="date_expediente"/>
+                                    <label for="n_exp"/>
+                                    <field name="n_exp"/>
                                 </div>
                                 <div>
-                                    <span>Cierre: </span>
-                                    <field name="file_expediente"/>
-                                    <field readonly="1" name="date_expediente"/>
+                                    <label for="profesional"/>
+                                    <field name="profesional"/>
+                                </div>
+                                <div>
+                                    <label for="pa"/>
+                                    <field name="pa"/>
+                                </div>
+                                <div>
+                                    <label for="ts"/>
+                                    <field name="ts"/>
+                                </div>
+                                <div>
+                                    <label for="accion_cabo"/>
+                                    <field name="accion_cabo"/>
+                                </div>
+                                <div>
+                                    <label for="cause_just"/>
+                                    <field name="cause_just"/>
+                                </div>
+                                <div>
+                                    <label for="inf_rel"/>
+                                    <field name="inf_rel"/>
+                                </div>
+                                <br/>
+                                <div class="o_setting_right_pane row">
+                                    <div class="col-6">
+                                        <span>Apertura: </span>
+                                        <field name="file_expediente"/>
+                                        <field readonly="1" name="date_expediente"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>Cierre: </span>
+                                        <field name="file_expediente"/>
+                                        <field readonly="1" name="date_expediente"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
+                        <hr/>
+                        <div class="row">
+                            <div class="col-12 o_setting_box">
                                 <label for="file_contrato_vinculante_a_servicio"/>
-                                <div>
-                                    <span>Alta: </span>
-                                    <field name="file_contrato_vinculante_a_servicio_a"/>
-                                    <field readonly="1" name="date_contrato_vinculante_a_servicio_a"/>
-                                </div>
-                                <div>
-                                    <span>Modificacion: </span>
-                                    <field name="file_contrato_vinculante_a_servicio"/>
-                                    <field readonly="1" name="date_contrato_vinculante_a_servicio"/>
-                                </div>
-                                <div>
-                                    <span>Fin: </span>
-                                    <field name="file_contrato_vinculante_a_servicio_f"/>
-                                    <field readonly="1" name="date_contrato_vinculante_a_servicio_f"/>
+                                <button name="%(action_previas)d" string="Generar" type="action"/>
+                                <br/>
+                                <br/>
+                                <div class="o_setting_right_pane row">
+                                    <div class="col-4">
+                                        <span>Alta: </span>
+                                        <field name="file_contrato_vinculante_a_servicio_a"/>
+                                        <field readonly="1" name="date_contrato_vinculante_a_servicio_a"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>Modificacion: </span>
+                                        <field name="file_contrato_vinculante_a_servicio"/>
+                                        <field readonly="1" name="date_contrato_vinculante_a_servicio"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>Fin: </span>
+                                        <field name="file_contrato_vinculante_a_servicio_f"/>
+                                        <field readonly="1" name="date_contrato_vinculante_a_servicio_f"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </page>
             </xpath>
         </field>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_compro_templ">
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <div class="row mb-5">
+                            <div class="col-3 mb4 ">
+                                <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 70px;" alt="Logo"/>
+                            </div>
+                        </div>
+                        <h4 class="text-center">
+ACUERDO DE CONFIDENCIALIDAD Y PROTECCIÓN DE DATOS
+                        </h4>
+                        <br/>
+                        <p class="text-end">
+En Madrid, a <t t-out="context_timestamp(datetime.datetime.now()).strftime('%d')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%m')"/>
+de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                        </p>
+                        <br/>
+                        <h4 class="text-center">
+R E U N I D O S
+                        </h4>
+                        <br/>
+                        <br/>
+                        <p>
+De una parte, FUNDACIÓN 26 DE DICIEMBRE, con domicilio sito en calle Amparo,
+número 27 (28012) Madrid, con NIF G-86005345, debidamente representada en
+este acto por D. Federico Armenteros Ávila, con DNI número 51.881.115-S, en su
+calidad de Presidente (en adelante, F26D).
+                        </p>
+                        <p>
+De otra parte, D./Dña. <t t-out="doc.name"/>
+con domicilio sito en <t t-out="doc.contact_address"/>
+y con número de identificación <t t-out="doc.vat"/>
+(en adelante,) <t t-out="doc.calidad_de"/>
+                        </p>
+                        <p>
+Las Partes se reconocen capacidad legal para suscribir el presente Acuerdo de
+confidencialidad y protección de datos y,
+                        </p>
+                        <p>
+E X P O N E N
+                        </p>
+                        <p>
+I.- Que F26D es una entidad sin ánimo de lucro creada para trabajar con y por las
+personas mayores LGTBIQ+.
+                        </p>
+                        <p>
+II.- Que D./Dña. <t t-out="doc.name"/>
+en calidad de <t t-out="doc.calidad_de"/>
+Fundación.
+colaborará para la antedicha
+                        </p>
+                        <p>
+III.-Que el objeto de este Acuerdo es fijar los términos y condiciones bajo las cuales
+el <t t-out="doc.calidad_de"/>
+mantendrá la confidencialidad de la
+información suministrada por F26D y atenderá a la normativa vigente en materia de
+protección de datos.
+                        </p>
+                        <p>
+V.- Que este Acuerdo no constituye ningún acuerdo de licencia, contrato de
+desarrollo o similar. Las obligaciones de las partes en este Acuerdo quedan
+expresamente fijadas en el mismo.
+                        </p>
+                        <p>
+Todo ello, en base a las siguientes,
+                        </p>
+                        <p>
+C L Á U S U L A S
+                        </p>
+                        <p>
+PRIMERA.- Definiciones
+                        </p>
+                        <p>
+Información confidencial: Comprenderá toda la información obtenida de F26D, así
+como toda la información generada por la misma, incluyendo, pero no limitado a los
+secretos industriales y comerciales, sistemas de información confidencial, planes de
+negocio, planes de comercialización asociados con los productos directos o
+indirectos, listados de usuarios, detalles personales, usuarios de sistemas
+desarrollados por F26D (portales, aplicaciones informáticas o cualquier otro
+desarrollo), información sobre proyectos, claves de acceso en general, claves de
+acceso a las aplicaciones, cualquier sistema de información, contenido de bases de
+datos, archivos en cualquier soporte de datos y cualquier información, con
+independencia de que haya sido o no clasificada como Información Confidencial.
+                        </p>
+                        <p>
+Datos y documentos: Pasarán a considerarse como datos y documentos cualquier
+tipo de Código de carácter confidencial que pudiera conocer el
+como pudieran ser, a modo ejemplificativo, Estatutos Sociales, contratos de
+cualquier tipo, seguros, subvenciones, nóminas de los empleados, permisos,
+autorizaciones y/o licencias administrativas, etc.
+                        </p>
+                        <p>
+Estarán incluidos dentro de este concepto las IP´s, contraseñas, configuración de
+VPN, certificados o llaves de acceso, credenciales de acceso a aplicaciones, ficheros
+de claves, bases de datos, ficheros con daros sensibles, diagramas de red, o datos de
+usuario (email, ID, password). Dentro de esto, también se incluye la documentación
+aportada por los usuarios y que no sea de ámbito público.
+                        </p>
+                        <p>
+SEGUNDA.- Objeto.
+                        </p>
+                        <p>
+2.1 D./Dña. <t t-out="doc.name"/>
+declara conocer y
+aceptar que viene obligados a observar riguroso secreto y confidencialidad en
+relación con la información y documentación, propiedad de F26D, de sus usuarios,
+residentes y/o terceros, a la que acceda en el desarrollo de sus funciones y se
+compromete a no divulgar ningún tipo de información que tenga dicho carácter,
+salvo autorización expresa por escrito de F26D, o que la misma sea de dominio
+público.
+                        </p>
+                        <p>
+2.2 Sin perjuicio de lo anterior, dada la naturaleza del sector en el que F26D
+desempeña su actividad y la sensibilidad de la información y documentación puesta
+a disposición del <t t-out="doc.calidad_de"/>
+las Partes
+convienen en reforzar las obligaciones de reserva y confidencialidad conforme
+disponen en el presente Acuerdo.
+                        </p>
+                        <p>
+TERCERA.- Duración
+                        </p>
+                        <p>
+La presente obligación de confidencialidad tiene una duración indefinida, es decir,
+que aún finalizado el período en que el alumno colaborase con F26D, se obliga a
+guardar absoluta reserva y a no utilizar ni revelar la información secreta y
+confidencial de la que haya podido tener acceso como consecuencia de la
+colaboración llevada a cabo.
+                        </p>
+                        <p>
+CUARTA.- Cesión de Derechos
+                        </p>
+                        <p>
+D. Dña. <t t-out="doc.name"/>
+respetará en todo
+momento los derechos de propiedad intelectual, que correspondan o puedan
+corresponder a F26D, con respecto a los proyectos o desarrollo del trabajo
+encomendado.
+                        </p>
+                        <p>
+En este acto, el <t t-out="doc.calidad_de"/>
+cede todo derecho de
+propiedad intelectual y reconoce expresamente que no ostenta derecho alguno
+sobre la citada información y propiedad intelectual, que es de plena titularidad y
+propiedad de F26D.
+                        </p>
+                        <p>
+Asimismo, se compromete a no hacer ningún uso, para sí ni para terceros ajenos del
+contenido de los documentos ni de los conocimientos, información, materiales, o
+cualesquiera otros detalles referentes al know-how conocidos durante su
+colaboración con F26D.
+                        </p>
+                        <p>
+Por último, todos los memorándums, notas, listas, medios electrónicos o
+magnéticos, archivos, listado de usuarios y trabajadores y correspondencia,
+documentos, ordenadores y otros discos y cintas, listado de datos, códigos, diseños
+y dibujos, así como cualquier otro tipo de documento o materia de cualquier
+naturaleza (y todas las copias de los mismos) realizados o compilados por el
+                        </p>
+                        <p>
+será propiedad exclusiva de F26D y será entregado a ésta al finalizar esta relación,
+cualquiera que sea la causa que produzca la misma, o en cualquier otro momento
+en que F26D así lo solicite.
+                        </p>
+                        <p>
+QUINTA.- Protección de Datos
+                        </p>
+                        <p>
+D./Dña. <t t-out="doc.name"/>
+reconoce conocer que
+el tratamiento de los datos de carácter personal se realizará con las finalidades
+propias de su colaboración con F26D, de conformidad con lo establecido en el
+Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo y la Ley Orgánica
+de Protección de Datos y Garantía de Derechos Digitales (LOPDGDD).
+                        </p>
+                        <p>
+Asimismo, se compromete a utilizar y tratar los datos de acuerdo a lo establecido en
+la normativa vigente en materia de protección de datos de carácter personal.
+                        </p>
+                        <p>
+De conformidad con la normativa de protección de datos aplicable, cada una de las
+Partes queda informada de que los datos personales de contacto de sus firmantes y
+otras personas físicas que presten servicios en ella y cuyos datos de contacto son
+necesarios para su localización profesional y prestación del servicio objeto del
+Acuerdo, serán tratados por la otra Parte con la finalidad de permitir el desarrollo,
+cumplimiento y control de la relación concertada entre las Partes. La base jurídica
+del tratamiento de estos datos de contacto es la ejecución del Acuerdo y
+obligaciones legales.
+                        </p>
+                        <p>
+Las Partes solo conservarán estos datos personales de contacto durante el tiempo
+necesario para cumplir con las finalidades para los que fueron recogidos y, una vez
+superado ese plazo, durante el plazo de prescripción de las acciones y
+responsabilidades derivadas de la relación contractual o durante el plazo exigido por
+la normativa de aplicación.
+                        </p>
+                        <p>
+Los firmantes y las personas físicas que presten servicios en cada una las Partes
+podrán solicitar el acceso a los datos personales a los que se refiere esta cláusula, su
+rectificación, su supresión, su portabilidad y la limitación de su tratamiento, así como
+oponerse al mismo, en el domicilio de la otra Parte.
+                        </p>
+                        <p>
+SEXTA.- Obligaciones de D./Dña. <t t-out="doc.name"/>
+en materia de protección de datos.
+                        </p>
+                        <ul>
+                            <li>
+Solamente tratará los datos que se le han encomendado conforme a las
+instrucciones de F26D.
+                            </li>
+                            <li>
+Los datos facilitados no se aplicarán ni utilizarán con una finalidad diferente al
+desempeño de sus funciones y el alumno no los comunicará, ni siquiera a efectos
+de su conservación, a terceros.
+                            </li>
+                            <li>
+Está obligado a guardar secreto y absoluta confidencialidad respecto de los
+datos que les han sido confiados.
+                            </li>
+                            <li>
+Adoptará todas las medidas necesarias para el cumplimiento de las
+obligaciones derivadas del Reglamento (UE) 2016/679 General de Protección de
+Datos.
+                            </li>
+                            <li>
+La colaboración del <t t-out="calidad_de"/>
+podrá resuelta
+por F26D en el supuesto de incumplimiento de las obligaciones contractuales con
+preaviso de quince (15) días.
+                            </li>
+                            <li>
+Será de aplicación en todo caso, en lo no previsto en este contrato, la
+normativa vigente en materia de protección de datos personales.
+                            </li>
+                        </ul>
+                        <p>
+SÉPTIMA.- Comunicaciones
+                        </p>
+                        <p>
+Para la práctica de cuantos requerimientos o notificaciones hayan de verificarse,
+ambas partes designan los domicilios reseñados en el encabezamiento de este
+contrato.
+                        </p>
+                        <p>
+OCTAVA.- Legislación aplicable
+                        </p>
+                        <p>
+El presente acuerdo se regirá por lo establecido en el Reglamento (UE) 2016/679 del
+Parlamento Europeo y del Consejo y la Ley Orgánica de Protección de Datos y
+Garantía de Derechos Digitales (LOPDGDD) y será interpretado conforme a lo
+previsto en el Real Decreto Legislativo 1/199, de 12 de abril, por el que se aprueba el
+Texto Refundido de la Ley de Propiedad Intelectual y, en general, por las
+disposiciones legales que le sean de aplicación.
+                        </p>
+                        <p>
+NOVENA.- Competencia y Fuero
+                        </p>
+                        <p>
+Para resolver cuantas divergencias pudieran surgir como consecuencia de la
+interpretación de este acuerdo y que hubieren de ser sometidas a la competencia
+judicial, las partes se someten para la solución de cualquier controversia que pudiera
+surgir en torno al presente contrato a los Juzgados y Tribunales de Madrid, con
+expresa renuncia a cualquier otro fuero que pudiera corresponderles.
+                        </p>
+                        <p>
+Y en prueba de conformidad, firman el presente, por duplicado, en la fecha y lugar
+señalados en el encabezamiento.
+                        </p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                              D./Dña. <t t-out="doc.name"/>
+                            </div>
+                            <div class="col-6">
+Fundación 26 de Diciembre
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_compro" model="ir.actions.report">
+            <field name="name">COMPROMISO DE CONFIDENCIALIDAD</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">fvd_custom.report_compro_templ</field>
+            <field name="report_file">fvd_custom.report_compro_templ</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="fvd_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>

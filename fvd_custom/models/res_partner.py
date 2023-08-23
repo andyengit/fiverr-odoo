@@ -46,6 +46,16 @@ class ResPartner(models.Model):
     plant = fields.Char("Planta")
     puerta = fields.Char("Puerta")
 
+    calidad_de = fields.Selection(
+        [
+            ("alumprac", "Alumnx en Practicas"),
+            ("colab", "Personas Colaboradoras"),
+            ("tbc", "TBC"),
+            ("vol","Voluntariadx"),
+        ],
+        default=False,
+    )
+
     file_cesion_de_datos = fields.Binary("Cesion de datos")
     date_cesion_de_datos = fields.Date()
 
@@ -63,7 +73,28 @@ class ResPartner(models.Model):
 
     file_expediente = fields.Binary("Expediente")
     date_expediente = fields.Date()
-    
+
+    n_exp = fields.Char("Nº EXPEDIENTE")
+    pa = fields.Char("PA")
+    ts = fields.Char("TS")
+    profesional = fields.Many2one("hr.employee", "Profesional")
+    accion_cabo = fields.Text("ACCIÓN LLEVADA A CABO")
+    cause_just = fields.Text("CAUSA QUE LO JUSTIFICA")
+    inf_rel = fields.Text("INFORMACIÓN RELEVANTE")
+
+    marital = fields.Selection(
+        [
+            ("married", "CASADX"),
+            ("divorced", "DIVORCIADX"),
+            ("cohabitant", "PAREJA DE HECHO"),
+            ("single", "SOLTERX"),
+            ("widower", "VIUDX"),
+            ("separated", "SEPARADX"),
+        ],
+        default="single",
+        string="Estado Civil"
+    )
+
     file_expediente_c = fields.Binary("Expediente")
     date_expediente_c = fields.Date()
 
@@ -89,7 +120,7 @@ class ResPartner(models.Model):
             self.date_instrucciones_previas = fields.Date.today()
         if vals.get("file_expediente", False):
             self.date_expediente = fields.Date.today()
-        if vals.get("file_expetiente_c",False):
+        if vals.get("file_expetiente_c", False):
             self.date_expediente_c = fields.Date.today()
         if vals.get("file_contrato_vinculante_a_servicio", False):
             self.date_contrato_vinculante_a_servicio = fields.Date.today()
