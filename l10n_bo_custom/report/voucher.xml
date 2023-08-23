@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data> <template id="report_voucher">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.html_container">
+                    <t t-call="web.basic_layout">
+                        <div class="row p-2 border border-2 mt-5 rounded border-dark" >
+                            <div class="col-8">
+                                <div>
+                                    <p>
+                                        <t t-out="doc.company_id.name"/>
+                                    </p>
+                                    <p>
+                                        <t t-out="doc.company_id.street"/>,
+                                        <t t-out="doc.company_id.city"/>,
+                                        <t t-out="doc.company_id.state_id.name"/> 
+                                        (<t t-out="doc.company_id.zip"/> ),
+                                        <t t-out="doc.company_id.country_id.name"/>,
+
+                                    </p>
+                                    <h4 class="text-end">COMPROBANTE DE EGRESO</h4>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-6 border m-1 border-2 rounded border-dark">
+                                        <div class="row">
+                                            Fecha:
+                                        </div>
+                                        <div class="row">
+                                            <t t-out="doc.date"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 border m-1 border-2 rounded border-dark" >
+                                        <div class="row">
+                                            T.C:
+                                        </div>
+                                        <div class="row">
+                                            <t t-out="doc.tc"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 border m-1 border-2 rounded border-dark">
+                                    <h4>Nº <t t-out="doc.name"/></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 border border-2 mt-1 rounded border-dark" >
+                            <div class="col-8">
+                                <div>
+                                    <p>
+                                        <b>LUGAR Y FECHA :</b> <t t-out="doc.lugar"/>,<t t-out="doc.date"/>
+                                    </p>
+                                    <p>
+                                        <b>PAGADO A :</b> <t t-out="doc.pagado_a"/>
+                                    </p>
+                                    <p>
+                                        <b>CONCEPTO :</b> <t t-out="doc.description"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-top-0 border-right-0 border-left-0 border-dark">
+                            <div class="row mt-2" style="font-size: 12px;" >
+                                <div class="col-1 border p-2 border-dark text-center">
+                                    CODIGO
+                                </div>
+                                <div class="col-3 border p-2 border-dark text-center">
+                                    CUENTA
+                                </div>
+                                <div class="col-2 border p-2 border-dark text-center">
+                                    Debe
+                                </div>
+                                <div class="col-2 border p-2 border-dark text-center">
+                                    Haber
+                                </div>
+                                <div class="col-2 border p-2 border-dark text-center">
+                                    Debe $
+                                </div>
+                                <div class="col-2 border p-2 border-dark text-center">
+                                    Haber $
+                                </div>
+                            </div>
+                            <t t-set="d" t-value="0"/>
+                            <t t-set="h" t-value="0"/>
+                            <t t-set="d_d" t-value="0"/>
+                            <t t-set="h_d" t-value="0"/>
+                            <t t-foreach="doc.account_move_line_ids" t-as="line">
+                                <div class="row" style="font-size: 12px;" >
+                                    <div class="col-1 border p-1 border-top-0 border-bottom-0 border-dark text-center">
+                                        <t t-out="line.account_id.code"/>
+                                    </div>
+                                    <div class="col-3 border p-1 border-top-0 border-bottom-0 border-dark">
+                                        <t t-out="line.account_id.name"/>
+                                    </div>
+                                    <div class="col-2 border p-1 border-top-0 border-bottom-0 border-dark text-end">
+                                        <t t-out="line.debit"/>
+                                        <t t-set="d" t-value="d + line.debit"/>
+                                    </div>
+                                    <div class="col-2 border p-1 border-top-0 border-bottom-0 border-dark text-end">
+                                        <t t-out="line.credit"/>
+                                        <t t-set="h" t-value="h + line.credit"/>
+                                    </div>
+                                    <div class="col-2 border p-1 border-top-0 border-bottom-0 border-dark text-end">
+                                        <t t-out="round(line.debit * doc.tc_inverse,2)"/>
+                                        <t t-set="d_d" t-value="d_d + line.debit * doc.tc_inverse"/>
+                                    </div>
+                                    <div class="col-2 border p-1 border-top-0 border-bottom-0 border-dark text-end">
+                                        <t t-out="round(line.credit * doc.tc_inverse,2)"/>
+                                        <t t-set="h_d" t-value="h_d + line.credit * doc.tc_inverse"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="row mt-2" style="font-size: 12px;" >
+                            <div class="col-1">
+                            </div>
+                            <div class="col-3">
+                                TOTAL
+                            </div>
+                            <div class="col-2 text-end">
+                                <t t-out="d"/>
+                            </div>
+                            <div class="col-2 text-end">
+                                <t t-out="h"/>
+                            </div>
+                            <div class="col-2 text-end">
+                                <t t-out="round(d_d, 2)"/>
+                            </div>
+                            <div class="col-2 text-end">
+                                <t t-out="round(h_d, 2)"/>
+                            </div>
+                        </div>
+
+                        <div class="border border-2 mt-5 rounded border-dark" >
+                            <p>
+                                    SON: <t t-out="doc.get_amount_text(d)"/> Bolivianos
+                            </p>
+                            <p>
+                                    SON: <t t-out="doc.get_amount_text(d_d)"/> Dolares
+                            </p>
+                        </div>
+                        <div class="border border-2 mt-5 rounded border-dark" >
+                            <div class="row" style="height: 80px">
+                                <div class="col-3 p-2 border border-dark">
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+PREPARADO POR
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+REVISADO Y APROBADO
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+RECIBIDO DE
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+                                </div>
+                            </div>
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record id="paperformat_custom" model="report.paperformat">
+            <field name="name">Standar custom</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="action_voucher" model="ir.actions.report">
+            <field name="name">CESIÓN DE DERECHOS DE IMÁGEN</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">l10n_bo_custom.report_voucher</field>
+            <field name="report_file">l10n_bo_custom.report_voucher</field>
+            <field name="model">l10n_bo_custom.voucher</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_l10n_bo_custom_voucher"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="l10n_bo_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>

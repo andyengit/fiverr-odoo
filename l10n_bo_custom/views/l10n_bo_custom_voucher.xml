@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Tree -->
+        <record id="view_disbursement_voucher_tree" model="ir.ui.view">
+            <field name="name">l10n_bo_custom.voucher.tree</field>
+            <field name="model">l10n_bo_custom.voucher</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Form -->
+        <record id="view_disbursement_voucher_form" model="ir.ui.view">
+            <field name="name">l10n_bo_custom.voucher.form</field>
+            <field name="model">l10n_bo_custom.voucher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="%(action_voucher)d" string="Imprimir Comprobante" type="action"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <h1>
+                                <field name="name" placeholder="Nº de Comprobante"/>
+                            </h1>
+                            <group>
+                                <field name="lugar"/>
+                                <field name="pagado_a"/>
+                                <field name="tc"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <!-- Pestaña de account.move.line -->
+
+                            <field name="currency_id"/>
+                            <page string="Apuntes Contable">
+                                <field name="account_move_line_ids" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="account_id"/>
+                                        <field name="credit" sum="Credito"/>
+                                        <field name="debit" sum="Debito"/>
+                                        <field name="tax_audit"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Asiento Contable">
+                                <field name="voucher_line_ids" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="is_invoice"/>
+                                        <field name="move_type"/>
+                                        <field name="name" domain="[('move_type','=',move_type),'|',('date','=',date),('invoice_date','=',date)]" context="{'default_move_type': move_type}" />
+                                        <field name="date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones -->
+        <record id="action_disbursement_voucher" model="ir.actions.act_window">
+            <field name="name">Comprobante de egreso</field>
+            <field name="res_model">l10n_bo_custom.voucher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Vista Form -->
+        <record id="view_disbursement_voucher_line_form" model="ir.ui.view">
+            <field name="name">l10n_bo_custom.voucher.line.form</field>
+            <field name="model">l10n_bo_custom.voucher.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="date" invisible="1"/>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción -->
+        <record id="action_disbursement_voucher_line" model="ir.actions.act_window">
+            <field name="name">Linea de Vaucher</field>
+            <field name="res_model">l10n_bo_custom.voucher.line</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <!-- Menú -->
+        <menuitem id="menu_disbursement_voucher_list" name="Comprobante de Egreso" parent="account.menu_finance_reports" action="action_disbursement_voucher"/>
+    </data>
+</odoo>
