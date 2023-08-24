@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_contrato">
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+
+                        <t t-foreach="['COPIA PARA LA FUNDACIÓN 26 DE DICIEMBRE','COPIA PARA LA PERSONA USUARIA']" t-as="copytext">
+                        <p class="text-end" style="font-size:10px;color: #21212120"><t t-out="copytext"/></p>
+                            <div class="row border border-dark mb-5">
+                                <div class="col-3 mb4 ">
+                                    <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 70px;" alt="Logo"/>
+                                </div>
+                                <div class="col-6 text-center mt-3" style="font-size:25px">
+    CONTRATO VINCULANTE DEL SERVICIO
+                                </div>
+                            </div>
+                            <p>
+    En Madrid, a <t t-out="context_timestamp(datetime.datetime.now()).strftime('%d')"/>
+    de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%m')"/>
+    de <t t-out="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                            </p>
+                            <h6>
+    IDENTIFICACIÓN DE LA ENTIDAD PRESTADORA DEL SERVICIO.
+                            </h6>
+                            <div class="row">
+                                <div class="col-4 p-2 border border-dark">
+                                    Nombre de la entidad
+                                </div>
+                                <div class="col-8 p-2 border border-dark">
+                                    Fundación 26 de Diciembre
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+    Dirección de la Entidad
+                                </div>
+                                <div class="col-9 p-2 border border-dark">
+    C/ Fray Ceferino Gonzalez, 4, 28005 Madrid (Madrid)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2 p-2 border border-dark">
+                                    Nr. de teléfono
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    91.002.84.17
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+                                    CIF
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    G86005345
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+                                    CNAE
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    8731 SECTOR 3
+                                </div>
+                            </div>
+
+
+
+
+
+                            <h6 class="mt-3">
+    identificación del servicio.
+                            </h6>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+    servicio
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    fundación 26 de diciembre, sad- atención personal
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    nº registral
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    s5996
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2 p-2 border border-dark">
+    órgano inspector
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    subdirección general de inspección de centros y servicios sociales
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    certificado de calidad de la entidad
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    iso: 9001
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    entidad certificadora
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    cámara certifica
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                    <div class="col-2 p-2 border border-dark">
+    tipología
+                                    </div>
+                                <div class="col-2 p-2 border border-dark">
+    servicio de ayuda a domicilio
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    subtipología
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    atención de personal
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    sector social
+                                </div>
+                                <div class="col-2 p-2 border border-dark">
+    personas mayores
+                                </div>
+                            </div>
+
+
+
+                            <h6 class="mt-3">
+    IDENTIFICACIÓN DE LA PERSONA CONTRATANTE.
+                            </h6>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+    Apellidos; Nombre
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    <t t-out="doc.name"/>
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    Tipo de Documento
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+                                    <t t-out="doc.vat or doc.passport"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+    Dirección
+                                </div>
+                                <div class="col-9 p-2 border border-dark">
+    <t t-out="doc.contact_address"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+    Teléfono 1
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    <t t-out="doc.phone"/>
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    Teléfono 2
+                                </div>
+                                <div class="col-3 p-2 border border-dark">
+    <t t-out="doc.mobile"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-2 border border-dark">
+    Nº de Cuenta Bancaria
+                                </div>
+                                <div class="col-9 p-2 border border-dark">
+    <t t-out="doc.n_cuenta"/>
+                                </div>
+                            </div>
+
+                            <h5 class="text-center">
+    CONTENIDO DEL SERVICIO CONCERTADO
+                            </h5>
+                            <h6 class="mt-3">
+                                <b>
+    1. Finalidad
+                                </b>
+                            </h6>
+                            <p>
+    La atención prestada se orienta a satisfacer las necesidades detectadas de el/la solicitante. La misma será acompañada y
+    complementada por un equipo multidisciplinar que abogue por los principios básicos de autonomía, individualidad, independencia,
+    participación, inclusión social, integridad y continuidad en la atención, sobre la persona del solicitante.
+                            </p>
+                            <h6 class="mt-3">
+                                <b>
+    2. Prestaciones acordadas
+                                </b>
+                            </h6>
+                            <p>
+    Las prestaciones acordadas, y por las que se celebra el presente Contrato Vinculante del servicio son las que siguen (Marque las
+    opciones que corresponda).
+                            </p>
+
+                            <br/>
+                            <br/>
+                            <b>
+    Actividades de Atención Doméstica. se abordan las necesidades de los usuarios de forma integrada tratando de prevenir o detener
+    situaciones de deterioro o institucionalización innecesaria y temprana, incluye las siguientes actividades.
+                            </b>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Limpieza de la vivienda.
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Lavado, planchado, repaso y organización de ropa.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Preparación de alimentos para garantizar una alimentación equilibrada.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Mantenimiento de los utensilios domésticos y personales
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+
+                            <b>
+    Actividades de Atención Personal. Tienen como objetivo potenciar las capacidades del usuario, haciéndole agente de su propio
+    cambio apoyando su capacidad de decisión y su participación en el proceso, incluye las siguientes actividades.
+                            </b>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Apoyo a la higiene personal.
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Apoyo en la movilización dentro del hogar.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Apoyo para la ingesta de alimentos.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Apoyo en la toma de medicación.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Recogida y gestión de recetas y demás documentos.
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Acompañamiento al usuario para facilitar en descanso del cuidador principal.
+                                </div>
+                            </div>
+
+                            <br/>
+                            <br/>
+                            <b>
+    Actividades de Atención fuera de la Vivienda. Tienen como objetivo fomentar la autonomía del usuario fuera de la vivienda, para
+    así ralentizar el proceso de deterioro y posterior dependencia. Y fomentar el desarrollo y mantenimiento de redes sociales y evitar
+    el aislamiento social. Incluye las siguientes actividades.
+                            </b>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Acompañamiento a las vivitas terapéuticas dentro del municipio (médico de cabecera, especialistas, etc…).
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Acompañamiento al usuario en la realización de la compra de alimentos, así como de otros productos, a cuenta
+    del usuario del servicio.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Acompañamiento al usuario para la recogida y gestión de recetas y demás documentos.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Acompañamiento en actividades de ocio y tiempo libre (paseos, vivitas a familiares, visitas a amistades…)
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Acompañamiento en actividades destinadas al autocuidado (centro de día, centro de mayores…)
+                                </div>
+                            </div>
+
+                            <br/>
+                            <h6>
+                                <b>
+    3. Las actividades se prestarán en el siguiente horario *
+                                </b>
+                            </h6>
+                            <p>
+    * El/la solicitante reconoce la flexibilidad intrínseca del horario previsto ante la aparición de
+    situaciones sobrevenidas que impidan su
+    realización siempre y cuando sea preavisado.
+    Para atender este servicio y las franjas horarias disponibles se dotará al mismo de un asistente personal principal y de un apoyo/respiro.
+    Se realizará servicio nocturno cuando sea necesario y previa solicitud de el/la solicitante.
+    Para modificar el horario, tareas y tiempo de dedicación, el/la solicitante utilizará las reuniones de evaluación de su plan de intervención
+    individualizada, con la gestora de su caso, a fin de que cualquier modificación pueda ser implementada en tiempo y forma correcto y adecuados
+    a los objetivos y necesidades que se hayan valorado prioritarios entre ambas partes.
+                            </p>
+
+                            <br/>
+                            <h6>
+                                <b>
+    4. Condiciones económicas
+                                </b>
+                            </h6>
+                            <p>
+    El coste del servicio acordado en la Fundación 26 de Diciembre y la persona solicitante es de:
+                                <t t-out="doc.coste_serv"/>
+                            </p>
+
+                            <br/>
+                            <h6>
+                                <b>
+    5. Facturación y pago:
+                                </b>
+                            </h6>
+                            <p>
+    Los servicios se facturarán de la siguiente manera (Marque la opción que corresponda)
+                            </p>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Aquellos servicios con cuota fija al mes se facturarán y abonarán por adelantado; durante los 5 primeros días
+    hábiles del mes.
+                                </div>
+                            </div>
+
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Aquellos servicios abonados por horas, se facturarán a mes vencido y se abonarán durante los 5 primeros días
+    hábiles del mes.
+                                </div>
+                            </div>
+                            <p>
+    El abono del servicio se realizará por recibo domiciliario SEPA
+                            </p>
+
+                            <br/>
+                            <h6>
+                                <b>
+    6. Tratamiento de datos personales:
+                                </b>
+                            </h6>
+                            <p>
+    De acuerdo con lo dispuesto en el Reglamento (UE) 2016/679, del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a las
+    personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos (RGPD), Ley Orgánica 3/2018, de
+    5 de diciembre, de Protección de Datos Personales y Garantías de los Derechos Digitales y resto de normativa vigente en esta materia, le
+    comunicamos que los datos que le identifican como cliente o contacto son tratados con su consentimiento únicamente con la finalidad de
+    mantener relaciones profesionales o comerciales, según lo establecido en el artículo 6.1. a) y b) del RGPD. Sus datos han sido incorporados
+    al Sistema de Protección de Datos de Fundación Veintiséis de Diciembre, con N. I. F. G86005345, y domicilio en Calle Amparo 27, 28012 -
+    Madrid y serán conservados mientras que la finalidad para su tratamiento esté vigente. Asimismo, mantendremos una copia bloqueada,
+    mientras haya obligaciones legales por las que puedan requerírnoslos. Le recordamos que puede retirar su consentimiento para el
+    tratamiento de sus datos personales en cualquier momento, sin que ello afecte al tratamiento que se haya realizado con anterioridad.
+    Asimismo, le recordamos que dispone del derecho de acceso a los datos disponibles, así como de los derechos de rectificación, de
+    supresión, de oposición y de limitación de su tratamiento o portabilidad, conforme a lo establecido en el RGPD. Para ejercitar estos
+    derechos, o para revocar su consentimiento al tratamiento de sus datos personales, deberá dirigirse por escrito a la dirección postal
+    indicada más arriba o a la dirección de correo electrónico info@fundacion26d.org aportando copia de su DNI. En el caso de que lo
+    considere procedente, puede presentar reclamación ante Agencia Española de Protección de Datos, como Autoridad de Control. De
+    conformidad con lo dispuesto en el artículo 21 de la Ley 34/2002, le informamos de que si usted no desea recibir más información sobre
+    nuestros servicios puede darse de baja en la dirección de correo electrónico info@fundacion26d.org indicando en el asunto "baja" o "no
+    enviar correos". Esta entidad ha nombrado Delegado de Protección de Datos a Persevera, S. L. U., en la persona de Manuel del Palacio. Su
+    contacto es Príncipe de Anglona, 5. 28005 Madrid o mdp.dpo@perseveragrupo.com. Este correo, y los ficheros que en su caso se adjuntan,
+    son confidenciales y están dirigidos exclusivamente a su destinatario. Por favor, absténgase de su tratamiento o uso si no es el destinatario.
+                            </p>
+
+                            <br/>
+                            <h6>
+                                <b>
+    7. Legislación aplicable y jurisdicción competente
+                                </b>
+                            </h6>
+                            <p>
+    Las partes darán estricto cumplimiento de las disposiciones de la 
+    legislación del Estado Español que sean de aplicación y estén vigentes en cada momento.
+                            </p>
+                            <p>
+    Para cuantas diferencias puedan surgir en la aplicación e interpretación de las estipulaciones recogidas en este contrato, las partes
+    renuncian expresamente al fuero que pudiera corresponderles y se someten a la jurisdicción de los Juzgados y Tribunales ordinarios de la
+    ciudad de Madrid, España.
+                            </p>
+                            <p>
+    Y para que así conste la clara e inequívoca voluntad de las partes de someterse a los recogido
+    en el presente documento, firman el mismo,en duplicado ejemplar y a un solo efecto, en el lugar 
+    y fecha enunciados en el encabezamiento.
+                            </p>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <div class="col-6">
+    Fdo. <t t-out="doc.name"/>
+                                </div>
+                                <div class="col-6">
+    Fdo. Fundación 26 de Diciembre
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p>
+    En el momento de la firma del presente Contrato Vinculante al servicio la persona aporta la siguiente documentación.
+                            </p>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Fotocopia del documento de identidad
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-1">
+    <div style="border: 1px solid black;width: 18px;height: 18px"></div>
+                                </div>
+                                <div class="col-11">
+    Recibo SEPA
+                                </div>
+                            </div>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_contrato" model="ir.actions.report">
+            <field name="name">MODELO PARA CONTRATO VINCULANTE DEL SERVICIO</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">fvd_custom.report_contrato</field>
+            <field name="report_file">fvd_custom.report_contrato</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="fvd_custom.paperformat_custom"/>
+        </record>
+    </data>
+</odoo>

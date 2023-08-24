@@ -46,6 +46,8 @@ class ResPartner(models.Model):
     plant = fields.Char("Planta")
     puerta = fields.Char("Puerta")
 
+    n_cuenta = fields.Char("Nº Cuenta bancaria")
+
     calidad_de = fields.Selection(
         [
             ("alumprac", "Alumnx en Practicas"),
@@ -55,6 +57,7 @@ class ResPartner(models.Model):
         ],
         default=False,
     )
+    coste_serv = fields.Float("Coste del servicio")
 
     file_cesion_de_datos = fields.Binary("Cesion de datos")
     date_cesion_de_datos = fields.Date()

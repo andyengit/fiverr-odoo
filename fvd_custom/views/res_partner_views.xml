@@ -31,6 +31,8 @@
                 <field name="nationality_two"/>
                 <field name="nationality_three"/>
                 <field name="marital"/>
+                <field name="n_cuenta"/>
+                <field name="coste_serv"/>
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page name="PAI" string="PAI">
@@ -186,7 +188,7 @@
                         <div class="row">
                             <div class="col-12 o_setting_box">
                                 <label for="file_contrato_vinculante_a_servicio"/>
-                                <button name="%(action_previas)d" string="Generar" type="action"/>
+                                <button name="%(action_contrato)d" string="Generar" type="action"/>
                                 <br/>
                                 <br/>
                                 <div class="o_setting_right_pane row">
