@@ -30,6 +30,7 @@
                 <field name="nationality_one"/>
                 <field name="nationality_two"/>
                 <field name="nationality_three"/>
+                <field name="apatrida"/>
                 <field name="marital"/>
                 <field name="n_cuenta"/>
                 <field name="coste_serv"/>

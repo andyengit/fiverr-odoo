@@ -85,14 +85,16 @@ class ResPartner(models.Model):
     cause_just = fields.Text("CAUSA QUE LO JUSTIFICA")
     inf_rel = fields.Text("INFORMACIÓN RELEVANTE")
 
+    apatrida = fields.Boolean("Apátrida")
+
     marital = fields.Selection(
         [
-            ("married", "CASADX"),
-            ("divorced", "DIVORCIADX"),
-            ("cohabitant", "PAREJA DE HECHO"),
-            ("single", "SOLTERX"),
-            ("widower", "VIUDX"),
-            ("separated", "SEPARADX"),
+            ("married", "Casadx"),
+            ("divorced", "Divorciadx"),
+            ("cohabitant", "Pareja de hecho"),
+            ("single", "Solterx"),
+            ("widower", "Viudx"),
+            ("separated", "Separadx"),
         ],
         default="single",
         string="Estado Civil"

@@ -6,12 +6,12 @@ class HrEmployee(models.Model):
 
     marital = fields.Selection(
         selection_add=[
-            ("married", "CASADX"),
-            ("divorced", "DIVORCIADX"),
-            ("cohabitant", "PAREJA DE HECHO"),
-            ("single", "SOLTERX"),
-            ("widower", "VIUDX"),
-            ("separated", "SEPARADX"),
+            ("married", "Casadx"),
+            ("divorced", "Divorciadx"),
+            ("cohabitant", "Pareja de hecho"),
+            ("single", "Solterx"),
+            ("widower", "Viudx"),
+            ("separated", "Separadx"),
         ],
         groups="hr.group_hr_user",
         default="single",
